@@ -1,4 +1,4 @@
-# EnvTime
+# envtime
 
 This crate provides a procedural macro that can retrieve an environment variable at compile time or runtime.
 
