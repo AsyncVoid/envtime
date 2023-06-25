@@ -11,7 +11,7 @@ It is up to the compiler to then optimize and remove code if the compile time va
 
 ```toml
 [dependencies]
-envtime = "0.0.1"
+envtime = "0.0.2"
 ```
 
 ## Syntax & Usage
