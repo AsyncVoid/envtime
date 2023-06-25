@@ -1,11 +1,3 @@
-extern crate proc_macro;
-use proc_macro::{Literal, TokenStream, TokenTree};
-use std::env;
-use syn::{parse_macro_input, Lit, LitStr, Token, LitBool, LitByte, LitInt};
-use quote::{quote};
-use syn::punctuated::Punctuated;
-use syn::spanned::Spanned;
-
 //! # envime
 //!
 //! This crate provides a procedural macro that can retrieve an environment variable at compile time or runtime.
@@ -53,6 +45,14 @@ use syn::spanned::Spanned;
 //! env::set_var("TEST_U8_RUN_ENV", "53");
 //! assert_eq!(envtime_def!("TEST_U8_RUN_ENV", 77u8), 53u8);
 //! ```
+
+extern crate proc_macro;
+use proc_macro::{Literal, TokenStream, TokenTree};
+use std::env;
+use syn::{parse_macro_input, Lit, LitStr, Token, LitBool, LitByte, LitInt};
+use quote::{quote};
+use syn::punctuated::Punctuated;
+use syn::spanned::Spanned;
 
 /// Gets a environment variable as a String either at compile or runtime
 /// # Example
