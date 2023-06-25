@@ -15,7 +15,7 @@ envtime = "0.0.1"
 ```
 
 ## Syntax & Usage
-```rs
+```rust
 use envtime::*;
 
 // You can use unwrap_or_else on the envtime macro
