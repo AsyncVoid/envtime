@@ -1,0 +1,28 @@
+name: Test
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build
+      env:
+        TEST_BOOL_COMP_ENV: true
+        TEST_BYTE_COMP_ENV: 10
+        TEST_COMP_ENV: 456
+        TEST_I128_COMP_ENV: 25
+        TEST_U8_COMP_ENV: 12
+      run: cargo build --verbose
+    - name: Run tests
+      run: cargo test --verbose
