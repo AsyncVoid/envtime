@@ -57,6 +57,7 @@ use syn::spanned::Spanned;
 /// Gets a environment variable as a String either at compile or runtime
 /// # Example
 /// ```
+/// use std::env;
 /// use envtime::*;
 ///
 /// // Assuming the variable isn't set
@@ -83,6 +84,7 @@ pub fn envtime(input: TokenStream) -> TokenStream {
 /// Gets a environment variable as the type specified by the default value, either at compile or runtime
 /// # Example
 /// ```
+/// use std::env;
 /// use envtime::*;
 ///
 /// // Assuming we set the value of "PORT" to 5678 at compile or runtime
