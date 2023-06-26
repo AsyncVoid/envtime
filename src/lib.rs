@@ -77,7 +77,7 @@ pub fn envtime(input: TokenStream) -> TokenStream {
         }.into()
     }
     return  quote! {
-        env::var(#lit_str).ok()
+        std::env::var(#lit_str).ok()
     }.into()
 }
 
@@ -192,12 +192,12 @@ pub fn envtime_def(input: TokenStream) -> TokenStream {
     return match def_val {
         Lit::Str(_) => {
             (quote! {
-                env::var(#env_var).unwrap_or(String::from(#def_val))
+                std::env::var(#env_var).unwrap_or(String::from(#def_val))
             }).into()
         },
         Lit::Bool(_) => {
             (quote! {
-                env::var(#env_var).map_or(#def_val, |s| match s.as_str() {
+                std::env::var(#env_var).map_or(#def_val, |s| match s.as_str() {
                     "y" | "Y" | "Yes" | "yes" | "true" => true,
                     _ => false
                 })
@@ -205,12 +205,12 @@ pub fn envtime_def(input: TokenStream) -> TokenStream {
         },
         Lit::Byte(_) => {
             (quote! {
-                env::var(#env_var).ok().and_then(|s| s.parse::<u8>().ok()).unwrap_or(#def_val)
+                std::env::var(#env_var).ok().and_then(|s| s.parse::<u8>().ok()).unwrap_or(#def_val)
             }).into()
         },
         Lit::Int(_) => {
             (quote! {
-                env::var(#env_var).ok().and_then(|s| s.parse().ok()).unwrap_or(#def_val)
+                std::env::var(#env_var).ok().and_then(|s| s.parse().ok()).unwrap_or(#def_val)
             }).into()
         }
         _ => panic!("Unknown default value type")
