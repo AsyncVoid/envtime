@@ -13,7 +13,7 @@
 //!
 //! // You can use unwrap_or_else on the envtime macro
 //! let var = envtime!("TEST_NON_ENV").unwrap_or_else(|| String::from("hello"));
-//! assert_eq!(var, String::from("012"));
+//! assert_eq!(var, String::from("hello"));
 //! // This resolves to "hello" assuming it is not defined at compile time or runtime
 //!
 //! // Lets set a runtime variable to "123"
